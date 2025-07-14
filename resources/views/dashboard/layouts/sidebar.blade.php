@@ -17,31 +17,32 @@
                 </li>
 
                 @foreach (getMenus() as $menu)
-                    <li class="nav-item {{ request()->segment(1) == $menu->url ? 'menu-open' : '' }}">
-                        <a href="{{ $menu->subMenus->count() > 0 ? '#' : url($menu->url ?: '#') }}"
-                            class="nav-link {{ request()->segment(1) == $menu->url ? 'active' : '' }}">
-                            <i class="nav-icon bi {{ $menu->icon }}"></i>
-                            <p>
-                                {{ $menu->name }}
-                                @if (count($menu->subMenus) > 0)
-                                    <i class="nav-arrow bi bi-chevron-right"></i>
-                                @endif
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            @foreach ($menu->subMenus as $submenu)
-                                @if (auth()->user()->can(explode('/', $submenu->url)[1] . ' read'))
-                                    <li class="nav-item">
-                                        <a href="{{ url($submenu->url) }}"
-                                            class="nav-link {{ request()->segment(2) == explode('/', $submenu->url)[1] ? 'active' : '' }}">
-                                            <i class="nav-icon bi {{ $submenu->icon }}"></i>
-                                            <p>{{ $submenu->name }}</p>
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </li>
+                    @can($menu->url . ' read')
+                        <li class="nav-item {{ request()->segment(1) == $menu->url ? 'menu-open' : '' }}">
+                            <a href="{{ $menu->subMenus->count() > 0 ? '#' : url($menu->url ?: '#') }}" class="nav-link">
+                                <i class="nav-icon bi {{ $menu->icon }}"></i>
+                                <p>
+                                    {{ $menu->name }}
+                                    @if (count($menu->subMenus) > 0)
+                                        <i class="nav-arrow bi bi-chevron-right"></i>
+                                    @endif
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                @foreach ($menu->subMenus as $submenu)
+                                    @can(explode('/', $submenu->url)[1] . ' read')
+                                        <li class="nav-item">
+                                            <a href="{{ url($submenu->url) }}"
+                                                class="nav-link {{ request()->segment(2) == explode('/', $submenu->url)[1] ? 'active' : '' }}">
+                                                <i class="nav-icon bi {{ $submenu->icon }}"></i>
+                                                <p>{{ $submenu->name }}</p>
+                                            </a>
+                                        </li>
+                                    @endcan
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endcan
                 @endforeach
             </ul>
         </nav>

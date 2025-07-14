@@ -12,7 +12,7 @@ class ConfigController extends Controller
 {
     public function index(Config $kecamatan)
     {
-        $kecamatan  = Config::first();
+        $kecamatan  = Config::findOrFail(1);
         $provinsi   = Province::all();
 
         return view('dashboard.config.index', [

@@ -32,13 +32,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role_or_permission:Administrator|Operator'])->group(function () {
-    Route::get('/kecamatan/{kecamatan}/edit', [ConfigController::class, 'index'])->name('kecamatan.index');
+    Route::get('/kecamatan', [ConfigController::class, 'index'])->name('kecamatan.index');
     Route::put('/kecamatan/{kecamatan}', [ConfigController::class, 'update'])->name('kecamatan.update');
 });
 
 Route::middleware(['auth', 'role:Administrator'])->group(function () {
     // Settings -> Users
-    Route::get('/settings/applications/{application}/edit', [ApplicationController::class, 'index'])->name('application.index');
+    Route::get('/settings', [ApplicationController::class, 'index'])->name('application.index');
     Route::put('/settings/applications/{application}', [ApplicationController::class, 'update'])->name('application.update');
     // // Settings -> Menus
     Route::post('/settings/menus/update-status/{id}', [MenuController::class, 'updateStatus'])->name('settings.menus.update-status')->middleware('can:menus status');
