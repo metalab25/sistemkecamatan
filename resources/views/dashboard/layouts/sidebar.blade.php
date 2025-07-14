@@ -1,7 +1,7 @@
-<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+<aside class="shadow app-sidebar bg-body-secondary" data-bs-theme="dark">
     <div class="sidebar-brand">
         <a href="{{ route('dashboard') }}" class="brand-link">
-            <img src="{{ asset('assets/img/logo.png') }}" alt="{{ config('app.name') }}" class="brand-image opacity-75" />
+            <img src="{{ asset('assets/img/logo.png') }}" alt="{{ config('app.name') }}" class="opacity-75 brand-image" />
             {{-- <span class="brand-text fw-light">{{}}</span> --}}
         </a>
     </div>
@@ -29,7 +29,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             @foreach ($menu->subMenus as $submenu)
-                                @can(explode('/', $submenu->url)[1] . ' read')
+                                {{-- Debug: tampilkan permission yang dicek --}}
+                                {{-- {{ explode('/', $submenu->url)[1] . ' read' }} --}}
+                                @if (auth()->user()->can(explode('/', $submenu->url)[1] . ' read'))
                                     <li class="nav-item">
                                         <a href="{{ url($submenu->url) }}"
                                             class="nav-link {{ request()->segment(2) == explode('/', $submenu->url)[1] ? 'active' : '' }}">
@@ -37,7 +39,7 @@
                                             <p>{{ $submenu->name }}</p>
                                         </a>
                                     </li>
-                                @endcan
+                                @endif
                             @endforeach
                         </ul>
                     </li>

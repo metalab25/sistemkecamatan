@@ -8,6 +8,7 @@ use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Spatie\Permission\PermissionRegistrar;
 
 class RoleController extends Controller
 {
@@ -83,6 +84,11 @@ class RoleController extends Controller
             $role->syncPermissions([]);
         }
 
+        // Tambahkan baris berikut untuk flush cache permission
+        // auth()->user()->refreshPermissions();
+        // auth()->user()->forgetCachedPermissions();
+        // app()[PermissionRegistrar::class]->forgetCachedPermissions();
+
         return response()->json([
             'status' => 'success',
             'message' => 'Update Role Successfully.',
@@ -93,6 +99,9 @@ class RoleController extends Controller
     {
         $this->authorize('roles delete');
         $role->delete();
+
+        // Tambahkan baris berikut untuk flush cache permission
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         return response()->json([
             'status' => 'success',
