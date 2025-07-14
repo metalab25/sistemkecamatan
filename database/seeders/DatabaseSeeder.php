@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             ProvinceSeeder::class,
             ApplicationSeeder::class,
+            ConfigSeeder::class,
         ]);
     }
 }

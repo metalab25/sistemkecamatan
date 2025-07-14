@@ -139,6 +139,11 @@ class imageHelper
         }
     }
 
+    public static function cropLambang($file, $folder = 'default', $width = 195, $height = 250)
+    {
+        return self::cropAndSaveImage($file, $folder, $width, $height, 'lambang');
+    }
+
     public static function cropLogo($file, $folder = 'default', $width = 250, $height = 250)
     {
         return self::cropAndSaveImage($file, $folder, $width, $height, 'logo');

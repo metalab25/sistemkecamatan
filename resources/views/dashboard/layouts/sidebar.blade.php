@@ -18,7 +18,8 @@
 
                 @foreach (getMenus() as $menu)
                     <li class="nav-item {{ request()->segment(1) == $menu->url ? 'menu-open' : '' }}">
-                        <a href="{{ $menu->subMenus->count() > 0 ? '#' : url($menu->url ?: '#') }}" class="nav-link">
+                        <a href="{{ $menu->subMenus->count() > 0 ? '#' : url($menu->url ?: '#') }}"
+                            class="nav-link {{ request()->segment(1) == $menu->url ? 'active' : '' }}">
                             <i class="nav-icon bi {{ $menu->icon }}"></i>
                             <p>
                                 {{ $menu->name }}
@@ -29,8 +30,6 @@
                         </a>
                         <ul class="nav nav-treeview">
                             @foreach ($menu->subMenus as $submenu)
-                                {{-- Debug: tampilkan permission yang dicek --}}
-                                {{-- {{ explode('/', $submenu->url)[1] . ' read' }} --}}
                                 @if (auth()->user()->can(explode('/', $submenu->url)[1] . ' read'))
                                     <li class="nav-item">
                                         <a href="{{ url($submenu->url) }}"

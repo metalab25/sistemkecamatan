@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermissionController;
@@ -28,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'role_or_permission:Administrator|Operator'])->group(function () {
+    Route::get('/kecamatan/{kecamatan}/edit', [ConfigController::class, 'index'])->name('kecamatan.index');
+    Route::put('/kecamatan/{kecamatan}', [ConfigController::class, 'update'])->name('kecamatan.update');
 });
 
 Route::middleware(['auth', 'role:Administrator'])->group(function () {
