@@ -2,6 +2,7 @@
 <html lang="{{ config('app.locale') }}">
 
 <head>
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{{ config('app.name') . ' v.' . config('app.version') }} | {{ $title }}</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
