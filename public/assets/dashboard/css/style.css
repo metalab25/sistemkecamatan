@@ -9,6 +9,65 @@
 [data-bs-theme=dark].app-sidebar,
 [data-bs-theme=dark] .app-sidebar {
     --lte-sidebar-submenu-active-bg: #ff9007;
+    --lte-sidebar-menu-active-bg: #6758df;
+}
+
+.btn.btn-info {
+    box-shadow: 0 1px 10px #0dcaf0;
+}
+
+.btn.btn-info:hover {
+    box-shadow: 0 1px 10px #31d2f2;
+}
+
+.btn.btn-success {
+    box-shadow: 0 1px 10px #198754;
+}
+
+.btn.btn-success:hover {
+    box-shadow: 0 1px 10px #157347;
+}
+
+.btn.btn-secondary {
+    box-shadow: 0 1px 10px #6c757d;
+}
+
+.btn.btn-secondary:hover {
+    box-shadow: 0 1px 10px #5c636a;
+}
+
+.btn.btn-dark {
+    box-shadow: 0 1px 10px #212529;
+}
+
+.btn.btn-dark:hover {
+    box-shadow: 0 1px 10px #424649;
+}
+
+.btn.btn-plain {
+    background-color: #fff;
+    color: #363434;
+}
+
+.btn.btn-plain:hover {
+    background-color: #e7e6e6;
+    color: #000;
+}
+
+.small-box.text-bg-primary {
+    box-shadow: 0 1px 17px #0a67f2;
+}
+
+.small-box.text-bg-success {
+    box-shadow: 0 1px 17px #198754;
+}
+
+.small-box.text-bg-warning {
+    box-shadow: 0 1px 17px #ffc107;
+}
+
+.small-box.text-bg-danger {
+    box-shadow: 0 1px 17px #dc3545;
 }
 
 .navbar {
@@ -38,6 +97,8 @@
 
 .card {
     --bs-card-border-radius: 1.25rem;
+    box-shadow: 0 1px 17px rgba(0, 0, 0, 0.175) !important;
+    border-color: transparent;
 }
 
 .small-box {
@@ -159,8 +220,18 @@ table.dataTable td {
 
 .sidebar-wrapper .sidebar-menu>.nav-item.menu-open>.nav-link {
     background-color: #6758df;
+    box-shadow: 0 1px 7px #6758df;
 }
 
+.sidebar-wrapper .sidebar-menu>.nav-item>.nav-link.active:not(:hover) {
+    box-shadow: 0 1px 7px #6758df;
+}
+
+.sidebar-wrapper .nav-treeview>.nav-item>.nav-link.active,
+.sidebar-wrapper .nav-treeview>.nav-item>.nav-link.active:hover,
+.sidebar-wrapper .nav-treeview>.nav-item>.nav-link.active:focus {
+    box-shadow: 0 1px 7px #ff9007;
+}
 
 .navbar-nav>.user-menu>.dropdown-menu {
     padding: 10px;
@@ -174,6 +245,18 @@ table.dataTable td {
 
 .navbar-nav>.user-menu>.dropdown-menu>.user-footer {
     padding: 0;
+}
+
+.btn-primary {
+    background-color: #6758df;
+    border-color: #6758df;
+    box-shadow: 0 1px 7px #6758df;
+}
+
+.btn-primary:hover {
+    background-color: #5043b1;
+    border-color: #5043b1;
+    box-shadow: 0 1px 7px #5043b1;
 }
 
 @media (min-width: 576px) {
