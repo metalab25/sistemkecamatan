@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ApplicationController extends Controller
 {
-    public function index(Application $application)
+    public function index()
     {
+        $application = Application::findOrFail(1);
         $province = Province::all();
 
         return view('dashboard.settings.applications.index', [
-            'title' => 'Application Setting',
-            'application' => $application,
-            'province' => $province,
+            'title'         => 'Application Setting',
+            'application'   => $application,
+            'province'      => $province,
         ]);
     }
 

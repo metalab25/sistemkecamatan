@@ -38,7 +38,7 @@ Route::middleware(['auth', 'role_or_permission:Administrator|Operator'])->group(
 
 Route::middleware(['auth', 'role:Administrator'])->group(function () {
     // Settings -> Users
-    Route::get('/settings', [ApplicationController::class, 'index'])->name('application.index');
+    Route::get('/settings/applications', [ApplicationController::class, 'index'])->name('application.index');
     Route::put('/settings/applications/{application}', [ApplicationController::class, 'update'])->name('application.update');
     // // Settings -> Menus
     Route::post('/settings/menus/update-status/{id}', [MenuController::class, 'updateStatus'])->name('settings.menus.update-status')->middleware('can:menus status');
