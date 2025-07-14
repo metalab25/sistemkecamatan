@@ -6,8 +6,8 @@
                     <i class="bi bi-list"></i>
                 </a>
             </li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item d-none d-md-block font-outfit"><a href="/" target="_blank"
+                    class="nav-link">{{ 'Kecamatan ' . $config->nama_kecamatan }}</a></li>
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
