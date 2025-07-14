@@ -1,0 +1,184 @@
+:root,
+[data-bs-theme=light] {
+    --bs-border-radius: 0.5rem;
+    --bs-border-radius-sm: 0.375rem;
+    --bs-border-radius-lg: 0.75rem;
+    --bs-body-font-size: 0.95rem;
+}
+
+[data-bs-theme=dark].app-sidebar,
+[data-bs-theme=dark] .app-sidebar {
+    --lte-sidebar-submenu-active-bg: #ff9007;
+}
+
+.navbar {
+    --bs-navbar-nav-link-padding-x: 0.75rem;
+}
+
+.font-outfit {
+    font-family: 'Outfit', sans-serif;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-nunito {
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+    --bs-btn-border-radius: var(--bs-border-radius);
+}
+
+.card {
+    --bs-card-border-radius: 1.25rem;
+}
+
+.small-box {
+    border-radius: 1.25rem;
+}
+
+.small-box>.inner {
+    padding: 20px 20px 0px 20px;
+}
+
+.small-box>.small-box-footer {
+    border-bottom-left-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+}
+
+/* DataTable Style */
+div.dt-container div.dt-length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 0.95em;
+}
+
+div.dt-container div.dt-info {
+    font-size: 0.95em;
+}
+
+table.dataTable thead>tr>th div.dt-column-header span.dt-column-title,
+table.dataTable thead>tr>th div.dt-column-footer span.dt-column-title,
+table.dataTable thead>tr>td div.dt-column-header span.dt-column-title,
+table.dataTable thead>tr>td div.dt-column-footer span.dt-column-title,
+table.dataTable tfoot>tr>th div.dt-column-header span.dt-column-title,
+table.dataTable tfoot>tr>th div.dt-column-footer span.dt-column-title,
+table.dataTable tfoot>tr>td div.dt-column-header span.dt-column-title,
+table.dataTable tfoot>tr>td div.dt-column-footer span.dt-column-title {
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+}
+
+table.dataTable th,
+table.dataTable td {
+    box-sizing: border-box;
+    font-size: 0.857em;
+}
+
+/* End DataTable Style */
+
+/* Toast Bootstarp */
+.toast {
+    --bs-toast-border-radius: 0.65rem;
+    ;
+}
+
+.toast-custom {
+    background-color: #fff !important;
+}
+
+.toast-custom .toast-body {
+    color: #212529;
+    font-size: 0.9em;
+}
+
+.toast-custom.bg-success .toast-body {
+    color: #198754;
+}
+
+.toast-custom.bg-success .toast-header .bi {
+    color: #198754;
+}
+
+.toast-custom.bg-warning .toast-body {
+    color: #f77a05;
+}
+
+.toast-custom.bg-warning .toast-header .bi {
+    color: #f77a05;
+}
+
+.toast-custom.bg-danger .toast-body {
+    color: #dc3545;
+}
+
+.toast-custom.bg-danger .toast-header .bi {
+    color: #dc3545;
+}
+
+.toast-custom.bg-info .toast-body {
+    color: #35bbdc;
+}
+
+.toast-custom.bg-info .toast-header .bi {
+    color: #35bbdc;
+}
+/* End Toast Bootstrap */
+
+/* Bootstrap Table */
+.table thead>tr>th {
+    font-weight: 500;
+    font-size: 0.875em;
+}
+
+.table th,
+.table td {
+    font-size: 0.875em;
+}
+
+.modal-title {
+    font-family: 'Outfit', sans-serif;
+}
+
+.form-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    font-size: var(--bs-body-font-size);
+}
+
+.sidebar-wrapper .sidebar-menu>.nav-item.menu-open>.nav-link {
+    background-color: #6758df;
+}
+
+
+.navbar-nav>.user-menu>.dropdown-menu {
+    padding: 10px;
+    border-radius: 1.25rem;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    border-radius: 1rem;
+    padding: 20px;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer {
+    padding: 0;
+}
+
+@media (min-width: 576px) {
+    .navbar-nav>.user-menu .user-image {
+        margin-top: -5px;
+        margin-right: 0;
+    }
+}
