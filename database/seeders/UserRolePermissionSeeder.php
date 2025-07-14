@@ -81,12 +81,6 @@ class UserRolePermissionSeeder extends Seeder
         $role_admin->givePermissionTo('users delete');
         $role_admin->givePermissionTo('users status');
 
-        $admin->givePermissionTo('settings read');
-        $admin->givePermissionTo(['applications read', 'applications update', 'applications deleteLogo']);
-        $admin->givePermissionTo(['menus read', 'menus create', 'menus update', 'menus delete', 'menus status']);
-        $admin->givePermissionTo(['roles read', 'roles create', 'roles update', 'roles delete']);
-        $admin->givePermissionTo(['users read', 'users create', 'users update', 'users delete', 'users status']);
-
         $admin->assignRole('Administrator');
         $operator->assignRole('Operator');
     }
