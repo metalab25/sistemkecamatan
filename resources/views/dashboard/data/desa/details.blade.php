@@ -87,6 +87,7 @@
 @endpush
 
 @section('content')
+    <a href="{{ route('desa.index') }}" class="btn btn-danger btn-block mb-0 mb-sm-3">Kembali Ke Daftar Desa</a>
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive table-shadow rounded-3 mb-0">
