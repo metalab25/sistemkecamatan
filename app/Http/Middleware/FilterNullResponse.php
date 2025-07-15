@@ -18,7 +18,7 @@ class FilterNullResponse
         if ($response instanceof JsonResponse) {
             $originalData = $response->getData(true);
             $filteredData = ArrayHelper::filterRecursive($originalData);
-            $response->setData($filteredData);
+            $response->setData($filteredData);  
         }
 
         return $response;

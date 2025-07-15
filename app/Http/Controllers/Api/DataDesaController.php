@@ -63,7 +63,10 @@ class DataDesaController extends Controller
                 "website" => $validatedData['website'] ?? null,
             ];
 
-            $data_desa = DataDesa::create($validated_data_desa);
+            $data_desa = DataDesa::updateOrCreate(
+                ['kode_desa' => $validatedData['kode_desa']],
+                $validated_data_desa
+            );
 
             $validated_count_data_desa = [
                 "data_desa_id" => (int) $data_desa->id,
@@ -76,7 +79,10 @@ class DataDesaController extends Controller
                 "total_keluarga_pr" => $validatedData['total_keluarga_pr'],
             ];
 
-            CountDataDesa::create($validated_count_data_desa);
+            CountDataDesa::updateOrCreate(
+                ['data_desa_id' => $data_desa->id],
+                $validated_count_data_desa
+            );
 
             $data_desa_with_count = DataDesa::with('count_data_desa')->find($data_desa->id);
 
@@ -126,5 +132,4 @@ class DataDesaController extends Controller
     {
         //
     }
-
 }
