@@ -10,22 +10,18 @@ use Illuminate\Validation\Rule;
 
 class DataDesaRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-        $existing = DataDesa::where('kode_desa', $this->input('kode_desa'))->first();
+        $kode_desa = $this->input('kode_desa');
+        $kode_desa_short = explode('.', $kode_desa)[3] ?? null;
+
+        // Cari existing record berdasarkan kode_desa pendek
+        $existing = DataDesa::where('kode_desa', $kode_desa_short)->first();
 
         return [
             'nama_desa' => 'required|string|max:255',
@@ -33,11 +29,17 @@ class DataDesaRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
+                'regex:/^\d+\.\d+\.\d+\.\d+$/',
                 Rule::unique('data_desa', 'kode_desa')->ignore(optional($existing)->id),
             ],
             'kode_pos' => 'required|string|max:10',
             'nama_kepala' => 'required|string|max:255',
-            'nip_kepala' => ['required', 'string', 'max:30', Rule::unique('data_desa', 'nip_kepala')->ignore(optional($existing)->id),],
+            'nip_kepala' => [
+                'required',
+                'string',
+                'max:30',
+                Rule::unique('data_desa', 'nip_kepala')->ignore(optional($existing)->id),
+            ],
             'alamat' => 'required|string',
             'kecamatan' => 'required|string|max:255',
             'kode_kecamatan' => 'required|string|max:20',
