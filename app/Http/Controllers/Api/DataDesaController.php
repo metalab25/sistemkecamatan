@@ -58,7 +58,7 @@ class DataDesaController extends Controller
 
             $validated_data_desa = [
                 "nama_desa" => $validatedData['nama_desa'],
-                "kode_desa" => $validatedData['kode_desa'],
+                "kode_desa" => $kode_desa_explode[3],
                 "kode_pos" => $validatedData['kode_pos'],
                 "nama_kepala" => $validatedData['nama_kepala'],
                 "nip_kepala" => $validatedData['nip_kepala'],
