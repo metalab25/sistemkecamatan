@@ -46,7 +46,7 @@ class DataDesaRequest extends FormRequest
             'kode_provinsi' => 'required|string|max:20',
             'latitude' => 'nullable|string|max:50',
             'longitude' => 'nullable|string|max:50',
-            'path' => 'nullable|string|max:255',
+            'path' => 'nullable|string',
             'telepon' => [
                 'nullable',
                 'string',
