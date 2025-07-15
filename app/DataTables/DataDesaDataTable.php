@@ -41,7 +41,7 @@ class DataDesaDataTable extends DataTable
                 return Carbon::parse($row->updated_at)->translatedFormat('d F Y H:i:s');
             })
             ->addColumn('action', function ($row) {
-                return '<button type="button" data-id=' . $row->id . ' data-jenis="edit" class="btn btn-info btn-sm me-1 action"><i class="bi bi-list text-white"></i></button>';
+                return '<a href="' . route('desa.show', $row->id) . '" class="btn btn-info btn-sm me-1 action"><i class="bi bi-list text-white"></i></a>';
             })
             ->setRowId('id');
     }

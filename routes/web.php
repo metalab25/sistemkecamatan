@@ -26,6 +26,7 @@ Route::middleware(['auth', 'role_or_permission:Administrator|Operator'])->group(
     Route::get('/kecamatan', [ConfigController::class, 'index'])->name('kecamatan.index');
     Route::put('/kecamatan/{kecamatan}', [ConfigController::class, 'update'])->name('kecamatan.update');
     Route::get('/data/desa', [DesaController::class, 'index'])->name('desa.index');
+    Route::get('/data/desa/{desa}', [DesaController::class, 'show'])->name('desa.show');
 });
 
 Route::middleware(['auth', 'role:Administrator'])->group(function () {
