@@ -2,7 +2,7 @@
     <div class="sidebar-brand">
         <a href="{{ route('dashboard') }}" class="brand-link">
             <img src="{{ asset('assets/img/logo.png') }}" alt="{{ config('app.name') }}" class="opacity-75 brand-image" />
-            {{-- <span class="brand-text fw-light">{{}}</span> --}}
+            {{-- <div class="brand-text fw-light">{{ config('app.author') }}</div> --}}
         </a>
     </div>
     <div class="sidebar-wrapper">

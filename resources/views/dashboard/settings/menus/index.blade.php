@@ -1,25 +1,21 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <div class="app-content">
-        <div class="container-fluid">
-            @can('menus create')
-                <button type="button" class="btn btn-primary btn-block mb-2 mb-sm-3 btn-add">Add Menu</button>
-            @endcan
-            <div class="card mb-3">
-                <div class="card-body p-2">
-                    <div class="table-responsive">
-                        {{ $dataTable->table() }}
-                    </div>
-                </div>
+    @can('menus create')
+        <button type="button" class="btn btn-primary btn-block mb-2 mb-sm-3 btn-add">Add Menu</button>
+    @endcan
+    <div class="card mb-3">
+        <div class="card-body p-2">
+            <div class="table-responsive">
+                {{ $dataTable->table() }}
             </div>
+        </div>
+    </div>
 
-            <div class="modal fade" id="modalAction" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="modalActionLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal fade" id="modalAction" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalActionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
-                </div>
-            </div>
         </div>
     </div>
 @endsection

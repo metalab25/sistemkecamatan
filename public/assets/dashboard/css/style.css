@@ -223,6 +223,10 @@ table.dataTable td {
     box-shadow: 0 1px 7px #6758df;
 }
 
+.sidebar-wrapper .nav-item {
+    margin-top: 5px;
+}
+
 .sidebar-wrapper .sidebar-menu>.nav-item>.nav-link.active:not(:hover) {
     box-shadow: 0 1px 7px #6758df;
 }
@@ -257,6 +261,56 @@ table.dataTable td {
     background-color: #5043b1;
     border-color: #5043b1;
     box-shadow: 0 1px 7px #5043b1;
+}
+
+.btn-success {
+    background-color: #40c039;
+    border-color: #40c039;
+    box-shadow: 0 1px 7px #40c039;
+}
+
+.btn-success:hover {
+    background-color: #32af2b;
+    border-color: #32af2b;
+    box-shadow: 0 1px 7px #32af2b;
+}
+
+.btn-info {
+    background-color: #0899d2;
+    border-color: #0899d2;
+    box-shadow: 0 1px 7px #0899d2;
+    color: #fff;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background-color: #0475a1;
+    border-color: #0475a1;
+    box-shadow: 0 1px 7px #0475a1;
+}
+
+.btn-warning {
+    background-color: #ff9007;
+    border-color: #ff9007;
+    box-shadow: 0 1px 7px #ff9007;
+}
+
+.btn-warning:hover {
+    background-color: #cc7306;
+    border-color: #cc7306;
+    box-shadow: 0 1px 7px #cc7306;
+}
+
+.btn-danger {
+    background-color: #ff1307;
+    border-color: #ff1307;
+    box-shadow: 0 1px 7px #ff1307;
+}
+
+.btn-danger:hover {
+    background-color: #a81810;
+    border-color: #a81810;
+    box-shadow: 0 1px 7px #a81810;
 }
 
 @media (min-width: 576px) {
