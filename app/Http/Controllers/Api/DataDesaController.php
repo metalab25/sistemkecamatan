@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ArrayHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DataDesaRequest;
+use App\Models\Config;
 use App\Models\CountDataDesa;
 use App\Models\DataDesa;
 use Exception;
@@ -42,7 +43,18 @@ class DataDesaController extends Controller
     public function store(DataDesaRequest $request)
     {
         try {
+            $config = Config::findOrFail(1);
+
             $validatedData = $request->all();
+
+            $kode_desa_explode = explode('.', $validatedData['kode_desa']);
+
+            if ((int) $kode_desa_explode[0] !== $config->provinsi_id || (int) $kode_desa_explode[1] !== $config->kode_kabupaten || (int) $kode_desa_explode[2] !== $config->kode_kecamatan) {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'Gagal menambah data desa kode provinsi / kode kabupaten / kode kecamatan tidak valid',
+                ], 400);
+            }
 
             $validated_data_desa = [
                 "nama_desa" => $validatedData['nama_desa'],
