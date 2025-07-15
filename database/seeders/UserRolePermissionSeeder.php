@@ -35,6 +35,15 @@ class UserRolePermissionSeeder extends Seeder
         $role_admin     = Role::create(['name' => 'Administrator']);
         $role_operator  = Role::create(['name' => 'Operator']);
 
+        $permission = Permission::create(['name' => 'settings read', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'applications read', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'applications update', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'applications deleteLogo', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'menus read', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'menus create', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'menus update', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'menus delete', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'menus status', 'guard_name' => 'web']);
         $permission = Permission::create(['name' => 'roles read', 'guard_name' => 'web']);
         $permission = Permission::create(['name' => 'roles create', 'guard_name' => 'web']);
         $permission = Permission::create(['name' => 'roles update', 'guard_name' => 'web']);
@@ -43,9 +52,21 @@ class UserRolePermissionSeeder extends Seeder
         $permission = Permission::create(['name' => 'permission create', 'guard_name' => 'web']);
         $permission = Permission::create(['name' => 'permission update', 'guard_name' => 'web']);
         $permission = Permission::create(['name' => 'permission delete', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'users read', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'users create', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'users update', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'users delete', 'guard_name' => 'web']);
+        $permission = Permission::create(['name' => 'users status', 'guard_name' => 'web']);
 
-
-
+        $role_admin->givePermissionTo('settings read');
+        $role_admin->givePermissionTo('applications read');
+        $role_admin->givePermissionTo('applications update');
+        $role_admin->givePermissionTo('applications deleteLogo');
+        $role_admin->givePermissionTo('menus read');
+        $role_admin->givePermissionTo('menus create');
+        $role_admin->givePermissionTo('menus update');
+        $role_admin->givePermissionTo('menus delete');
+        $role_admin->givePermissionTo('menus status');
         $role_admin->givePermissionTo('roles read');
         $role_admin->givePermissionTo('roles create');
         $role_admin->givePermissionTo('roles update');
@@ -54,6 +75,11 @@ class UserRolePermissionSeeder extends Seeder
         $role_admin->givePermissionTo('permission create');
         $role_admin->givePermissionTo('permission update');
         $role_admin->givePermissionTo('permission delete');
+        $role_admin->givePermissionTo('users read');
+        $role_admin->givePermissionTo('users create');
+        $role_admin->givePermissionTo('users update');
+        $role_admin->givePermissionTo('users delete');
+        $role_admin->givePermissionTo('users status');
 
         $admin->assignRole('Administrator');
         $operator->assignRole('Operator');
