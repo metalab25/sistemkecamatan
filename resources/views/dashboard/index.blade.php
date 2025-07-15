@@ -6,7 +6,7 @@
             <div class="small-box text-bg-primary">
                 <div class="inner">
                     <h3>150</h3>
-                    <p>New Orders</p>
+                    <p>Total Desa</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -24,7 +24,7 @@
             <div class="small-box text-bg-success">
                 <div class="inner">
                     <h3>53<sup class="fs-5">%</sup></h3>
-                    <p>Bounce Rate</p>
+                    <p>Total Kelurahan</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -42,7 +42,7 @@
             <div class="small-box text-bg-warning">
                 <div class="inner">
                     <h3>44</h3>
-                    <p>User Registrations</p>
+                    <p>Total Penduduk</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -60,7 +60,7 @@
             <div class="small-box text-bg-danger">
                 <div class="inner">
                     <h3>65</h3>
-                    <p>Unique Visitors</p>
+                    <p class="font-outfit fw-semibold">Total Pelayanan Surat</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
