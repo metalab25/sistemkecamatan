@@ -49,7 +49,7 @@ class DataDesaController extends Controller
 
             $kode_desa_explode = explode('.', $validatedData['kode_desa']);
 
-            if ((int) $kode_desa_explode[0] !== $config->provinsi_id || (int) $kode_desa_explode[1] !== $config->kode_kabupaten || (int) $kode_desa_explode[2] !== $config->kode_kecamatan) {
+            if ((int) $kode_desa_explode[0] !== $config->provinsi_id || $kode_desa_explode[1] !== $config->kode_kabupaten || $kode_desa_explode[2] !== $config->kode_kecamatan) {
                 return response()->json([
                     'status' => 400,
                     'message' => 'Gagal menambah data desa kode provinsi / kode kabupaten / kode kecamatan tidak valid',
