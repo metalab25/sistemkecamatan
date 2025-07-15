@@ -5,7 +5,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box text-bg-primary">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $desaCount }}</h3>
                     <p>Total Desa</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -23,8 +23,8 @@
         <div class="col-lg-3 col-6">
             <div class="small-box text-bg-success">
                 <div class="inner">
-                    <h3>53<sup class="fs-5">%</sup></h3>
-                    <p>Total Kelurahan</p>
+                    <h3>{{ $keluargaCount }}</h3>
+                    <p>Total Keluarga</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -41,7 +41,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box text-bg-warning">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{ $pendudukCount }}</h3>
                     <p>Total Penduduk</p>
                 </div>
                 <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +75,55 @@
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                     More info <i class="bi bi-link-45deg"></i>
                 </a>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="table-responsive table-shadow rounded-3">
+                <table class="table table-striped table-bordered justify-content-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center align-middle" width="2%">No</th>
+                            <th class="text-center align-middle">Desa</th>
+                            <th class="text-center align-middle">Kode</th>
+                            <th class="text-center align-middle">Kepala Desa</th>
+                            <th class="text-center align-middle">NIP/NIAP</th>
+                            <th class="text-center align-middle">Telepon</th>
+                            <th class="text-center align-middle">Website</th>
+                            <th class="text-center align-middle">Pembaharuan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($dataDesa as $desa)
+                            <tr>
+                                <td class="text-center align-middle">
+                                    {{ $loop->iteration }}
+                                </td>
+                                <td class="text-center align-middle">{{ $desa->nama_desa }}</td>
+                                <td class="text-center align-middle">
+                                    {{ $desa->kode_provinsi . '.' . $desa->kode_kabupaten . '.' . $desa->kode_kecamatan . '.' . $desa->kode_desa }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{ $desa->nama_kepala }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{ $desa->nip_kepala }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{ $desa->telepon }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{ $desa->website ?? '-' }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{ \Carbon\Carbon::parse($desa->updated_at)->translatedFormat('d F Y H:i:s') }}
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
