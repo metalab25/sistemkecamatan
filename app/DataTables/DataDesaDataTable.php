@@ -20,7 +20,7 @@ class DataDesaDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addIndexColumn()
             ->addColumn('kode_desa', function ($row) {
-                return $row->kode_provinsi . '.' . $row->kode_kabutapen . '.' . $row->kode_kecamatan . '.' . $row->kode_desa;
+                return $row->kode_provinsi . '.' . $row->kode_kabupaten . '.' . $row->kode_kecamatan . '.' . $row->kode_desa;
             })
             ->addColumn('total_wilayah', function ($row) {
                 return $row->count_data_desa ? number_format($row->count_data_desa->total_wilayah, 0, ',', '.') : '0';
