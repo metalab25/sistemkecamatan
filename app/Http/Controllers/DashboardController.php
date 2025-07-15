@@ -14,13 +14,15 @@ class DashboardController extends Controller
         $desaCount = DataDesa::count();
         $pendudukCount = CountDataDesa::sum('total_penduduk');
         $keluargaCount = CountDataDesa::sum('total_keluarga');
+        $desas = DataDesa::select('nama_desa', 'alamat', 'latitude', 'longitude', 'nama_kepala')->get();
 
         return view('dashboard.index', [
             'title'     => 'Dashboard',
             'dataDesa'  => $dataDesa,
             'desaCount' => $desaCount,
             'pendudukCount' => $pendudukCount,
-            'keluargaCount' => $keluargaCount
+            'keluargaCount' => $keluargaCount,
+            'desas'     => $desas
         ]);
     }
 }

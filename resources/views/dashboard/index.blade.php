@@ -1,5 +1,15 @@
 @extends('dashboard.layouts.app')
 
+@push('css')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-lg-3 col-6">
@@ -14,9 +24,9 @@
                         d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z">
                     </path>
                 </svg>
-                <a href="#"
+                <a href="{{ route('desa.index') }}"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                    More info <i class="bi bi-link-45deg"></i>
+                    Lihat Semua <i class="bi bi-link-45deg"></i>
                 </a>
             </div>
         </div>
@@ -34,7 +44,7 @@
                 </svg>
                 <a href="#"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                    More info <i class="bi bi-link-45deg"></i>
+                    Lihat Semua <i class="bi bi-link-45deg"></i>
                 </a>
             </div>
         </div>
@@ -52,7 +62,7 @@
                 </svg>
                 <a href="#"
                     class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                    More info <i class="bi bi-link-45deg"></i>
+                    Lihat Semua <i class="bi bi-link-45deg"></i>
                 </a>
             </div>
         </div>
@@ -73,58 +83,37 @@
                 </svg>
                 <a href="#"
                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                    More info <i class="bi bi-link-45deg"></i>
+                    Lihat Semua <i class="bi bi-link-45deg"></i>
                 </a>
             </div>
         </div>
     </div>
-    <div class="card mb-3">
+    <div class="card mb-0">
         <div class="card-body">
-            <div class="table-responsive table-shadow rounded-3">
-                <table class="table table-striped table-bordered justify-content-center mb-0">
-                    <thead>
-                        <tr>
-                            <th class="text-center align-middle" width="2%">No</th>
-                            <th class="text-center align-middle">Desa</th>
-                            <th class="text-center align-middle">Kode</th>
-                            <th class="text-center align-middle">Kepala Desa</th>
-                            <th class="text-center align-middle">NIP/NIAP</th>
-                            <th class="text-center align-middle">Telepon</th>
-                            <th class="text-center align-middle">Website</th>
-                            <th class="text-center align-middle">Pembaharuan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($dataDesa as $desa)
-                            <tr>
-                                <td class="text-center align-middle">
-                                    {{ $loop->iteration }}
-                                </td>
-                                <td class="text-center align-middle">{{ $desa->nama_desa }}</td>
-                                <td class="text-center align-middle">
-                                    {{ $desa->kode_provinsi . '.' . $desa->kode_kabupaten . '.' . $desa->kode_kecamatan . '.' . $desa->kode_desa }}
-                                </td>
-                                <td class="text-center align-middle">
-                                    {{ $desa->nama_kepala }}
-                                </td>
-                                <td class="text-center align-middle">
-                                    {{ $desa->nip_kepala }}
-                                </td>
-                                <td class="text-center align-middle">
-                                    {{ $desa->telepon }}
-                                </td>
-                                <td class="text-center align-middle">
-                                    {{ $desa->website ?? '-' }}
-                                </td>
-                                <td class="text-center align-middle">
-                                    {{ \Carbon\Carbon::parse($desa->updated_at)->translatedFormat('d F Y H:i:s') }}
-                                </td>
-                            </tr>
-                        @empty
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+            <div id="map" class="rounded-3"></div>
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const desas = @json($desas);
+
+        const map = L.map('map').setView([-8.67, 116.12], 12); // Pusatkan pada Lombok Barat
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        desas.forEach(desa => {
+            if (desa.latitude && desa.longitude) {
+                L.marker([desa.latitude, desa.longitude])
+                    .addTo(map)
+                    .bindPopup(`<p><strong>Desa ${desa.nama_desa}</strong></p>
+                        <p><strong>Kepala Desa:</strong> ${desa.nama_kepala}<br>
+                        <strong>Alamat:</strong> ${desa.alamat}</p>`);
+            }
+        });
+    </script>
+@endpush
