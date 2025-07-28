@@ -76,6 +76,7 @@ class DataDesaController extends Controller
                 "path" => $validatedData['path'] ?? null,
                 "telepon" => $validatedData['telepon'] ?? null,
                 "website" => $validatedData['website'] ?? null,
+                "updated_at" => now(),
             ];
 
             $data_desa = DataDesa::updateOrCreate(
