@@ -31,11 +31,8 @@ class DataDesaDataTable extends DataTable
             ->addColumn('total_penduduk', function ($row) {
                 return $row->count_data_desa ? number_format($row->count_data_desa->total_penduduk, 0, ',', '.') : '0';
             })
-            ->addColumn('total_penduduk_lk', function ($row) {
-                return $row->count_data_desa ? number_format($row->count_data_desa->total_penduduk_lk, 0, ',', '.') : '0';
-            })
-            ->addColumn('total_penduduk_pr', function ($row) {
-                return $row->count_data_desa ? number_format($row->count_data_desa->total_penduduk_pr, 0, ',', '.') : '0';
+            ->addColumn('total_surat', function ($row) {
+                return $row->count_data_desa ? number_format($row->count_data_desa->total_surat, 0, ',', '.') : '0';
             })
             ->editColumn('updated_at', function ($row) {
                 return Carbon::parse($row->updated_at)->translatedFormat('d F Y H:i:s');
@@ -86,8 +83,7 @@ class DataDesaDataTable extends DataTable
             Column::computed('total_wilayah')->title('Dusun')->addClass('text-center align-middle'),
             Column::computed('total_keluarga')->title('Keluarga')->addClass('text-center align-middle'),
             Column::computed('total_penduduk')->title('Penduduk')->addClass('text-center align-middle'),
-            Column::computed('total_penduduk_lk')->title('Laki-Laki')->addClass('text-center align-middle'),
-            Column::computed('total_penduduk_pr')->title('Perempuan')->addClass('text-center align-middle'),
+            Column::computed('total_surat')->title('Surat')->addClass('text-center align-middle'),
             Column::make('updated_at')->title('Diperbaharui')->addClass('text-center align-middle'),
         ];
     }

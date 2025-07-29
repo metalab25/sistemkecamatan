@@ -7,6 +7,7 @@
             --bs-gutter-y: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             margin-top: calc(-1 * var(--bs-gutter-y));
             margin-right: calc(-0.5 * var(--bs-gutter-x));
             margin-left: calc(-0.5 * var(--bs-gutter-x));
@@ -212,6 +213,78 @@
                     </div>
                     <div class="box_body align-middle">
                         {{ $detailDataDesa->total_penduduk_pr }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Minggu Ini
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat_minggu_ini }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Minggu Lalu
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat_minggu_lalu }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Bulan Ini
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat_bulan_ini }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Bulan Lalu
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat_bulan_lalu }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Tahun Ini
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat_tahun_ini }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat }}
                     </div>
                 </div>
             </div>
