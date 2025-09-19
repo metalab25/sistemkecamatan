@@ -35,10 +35,9 @@ class DataDesaRequest extends FormRequest
             'kode_pos' => 'required|string|max:10',
             'nama_kepala' => 'required|string|max:255',
             'nip_kepala' => [
-                'required',
+                'nullable',
                 'string',
                 'max:30',
-                Rule::unique('data_desa', 'nip_kepala')->ignore(optional($existing)->id),
             ],
             'alamat' => 'required|string',
             'kecamatan' => 'required|string|max:255',
@@ -53,7 +52,6 @@ class DataDesaRequest extends FormRequest
                 'nullable',
                 'string',
                 'max:20',
-                Rule::unique('data_desa', 'telepon')->ignore(optional($existing)->id),
             ],
             'website' => 'nullable|url|max:255',
 
