@@ -1,7 +1,7 @@
 <footer class="app-footer font-outfit">
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
+    <div class="float-end d-none d-sm-inline">Teknologi Digital Desa Satu Data</div>
     Copyright &copy; 2014-2024&nbsp;
-    <a href="https://{{ config('app.author') }}" class="text-decoration-none">{{ config('app.author') }}</a>.
+    <a href="https://{{ config('app.author_url') }}" class="text-decoration-none">{{ config('app.author') }}</a>.
     All rights reserved.
 </footer>
 <!-- Toast Tag -->
