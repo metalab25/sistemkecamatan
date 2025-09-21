@@ -1,6 +1,6 @@
 <footer class="app-footer font-outfit">
     <div class="float-end d-none d-sm-inline">Teknologi Digital Desa Satu Data</div>
-    Copyright &copy; 2014-2024&nbsp;
+    Copyright &copy;{{ now()->year }}&nbsp;
     <a href="https://{{ config('app.author_url') }}" class="text-decoration-none">{{ config('app.author') }}</a>.
     All rights reserved.
 </footer>

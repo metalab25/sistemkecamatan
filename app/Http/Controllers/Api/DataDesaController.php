@@ -93,6 +93,7 @@ class DataDesaController extends Controller
                 "total_penduduk_pr" => $validatedData['total_penduduk_pr'],
                 "total_keluarga_lk" => $validatedData['total_keluarga_lk'],
                 "total_keluarga_pr" => $validatedData['total_keluarga_pr'],
+                "total_surat_kemarin" => $validatedData['total_surat_kemarin'],
                 "total_surat_minggu_ini" => $validatedData['total_surat_minggu_ini'],
                 "total_surat_minggu_lalu" => $validatedData['total_surat_minggu_lalu'],
                 "total_surat_bulan_ini" => $validatedData['total_surat_bulan_ini'],
