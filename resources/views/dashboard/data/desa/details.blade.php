@@ -106,7 +106,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="align-middle" width="13%">Kode Desa</th>
+                        <th class="align-middle" width="13%">Kepala Desa</th>
                         <th class="text-center align-middle" width="2%">:</th>
                         <td class="align-middle">
                             {{ $desa->nama_kepala . ' - ' . $desa->nip_kepala }}
@@ -126,7 +126,7 @@
                     <tr>
                         <th class="align-middle" width="13%">Website Desa</th>
                         <th class="text-center align-middle" width="2%">:</th>
-                        <td class="align-middle">{{ $desa->website }}</td>
+                        <td class="align-middle"><a href="{{ $desa->website }}">{{ $desa->website }}</a></td>
                     </tr>
                 </table>
             </div>
@@ -213,6 +213,18 @@
                     </div>
                     <div class="box_body align-middle">
                         {{ $detailDataDesa->total_penduduk_pr }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small_card">
+            <div class="small_card_box rounded-xl">
+                <div class="card__box">
+                    <div class="box_title">
+                        Total Surat Hari Ini
+                    </div>
+                    <div class="box_body align-middle">
+                        {{ $detailDataDesa->total_surat }}
                     </div>
                 </div>
             </div>

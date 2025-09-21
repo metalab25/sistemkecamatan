@@ -65,8 +65,8 @@
         <div class="col-lg-3 col-6">
             <div class="small-box text-bg-danger">
                 <div class="inner">
-                    <h3>65</h3>
-                    <p class="font-outfit fw-semibold">Pelayanan Surat</p>
+                    <h3>{{ $suratCount }}</h3>
+                    <p class="font-outfit fw-semibold">Total Pelayanan Surat</p>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                     class="small-box-icon bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
