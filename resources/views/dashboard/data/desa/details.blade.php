@@ -221,10 +221,10 @@
             <div class="small_card_box rounded-xl">
                 <div class="card__box">
                     <div class="box_title">
-                        Total Surat Hari Ini
+                        Total Surat Kemarin
                     </div>
                     <div class="box_body align-middle">
-                        {{ $detailDataDesa->total_surat }}
+                        {{ $detailDataDesa->total_surat_kemarin }}
                     </div>
                 </div>
             </div>
